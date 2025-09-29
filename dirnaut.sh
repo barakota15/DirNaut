@@ -253,7 +253,7 @@ for ((i=0; i <= $#; i++)); do
     case "$arg" in
         -d|--domain)
             if [[ -n "$next_arg" && "$next_arg" != -* ]]; then
-                if [[ "$next_arg" =~ ^[a-zA-Z0-9.-:/]+$ && "$next_arg" == *.* ]]; then
+                if [[ "$next_arg" =~ ^[a-zA-Z0-9.:/-]+$ && "$next_arg" == *.* ]]; then
                     DOMAIN_LIST+=("$next_arg")
                     continue
                 else
@@ -282,7 +282,7 @@ for ((i=0; i <= $#; i++)); do
                 while IFS= read -r line || [ -n "$line" ]; do
                     line="${line#"${line%%[![:space:]]*}"}"
                     line="${line%"${line##*[![:space:]]}"}"
-                    if [[ "$line" =~ ^[a-zA-Z0-9.-:/]+$ && "$line" == *.* ]]; then
+                    if [[ "$line" =~ ^[a-zA-Z0-9.:/-]+$ && "$line" == *.* ]]; then
                         DOMAIN_LIST+=("$line")
                     else
                         echo -e "[${RED}X${NC}] Invalid domain in file: '$line'"
