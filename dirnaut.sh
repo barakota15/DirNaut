@@ -347,7 +347,7 @@ for ((i=0; i <= $#; i++)); do
             for valid_tool in "${VALID_TOOLS[@]}"; do
                 if [[ "$tool" == "$valid_tool" ]]; then
                     valid=true
-                    continue
+                    break
                 fi
             done
 
@@ -357,7 +357,6 @@ for ((i=0; i <= $#; i++)); do
                 exit 1
             fi
         done
-    break
     fi
 done
 
@@ -383,7 +382,7 @@ for ((i=0; i <= $#; i++)); do
             for valid_tool in "${VALID_TOOLS[@]}"; do
                 if [[ "$tool" == "$valid_tool" ]]; then
                     valid=true
-                    continue
+                    break
                 fi
             done
 
@@ -396,7 +395,6 @@ for ((i=0; i <= $#; i++)); do
             echo -e "[${YELLOW}i${NC}] Valid tools are: ${VALID_TOOLS[*]}"
             exit 1
         fi
-    break
     fi
 done
 
