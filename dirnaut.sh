@@ -276,7 +276,7 @@ for ((i=0; i <= $#; i++)); do
                     echo -e "[${RED}X${NC}] Domain file '$DOMAIN_FILE' is not readable."
                     exit 1
                 else
-                    cat "$DOMAIN_FILE" | sort -u | tee "$DOMAIN_FILE" &> /dev/null
+                    cat "$DOMAIN_FILE" | sort -u | tee "tmp_$DOMAIN_FILE" &> /dev/null
                 fi
 
                 while IFS= read -r line || [ -n "$line" ]; do
@@ -287,7 +287,8 @@ for ((i=0; i <= $#; i++)); do
                     else
                         echo -e "[${RED}X${NC}] Invalid domain in file: '$line'"
                     fi
-                done < "$DOMAIN_FILE"
+                done < "tmp_$DOMAIN_FILE"
+                rm -f "tmp_$DOMAIN_FILE" &> /dev/null
                 continue
             else
                 echo -e "[${RED}X${NC}] No domain file specified after $arg"
