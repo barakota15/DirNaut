@@ -312,8 +312,6 @@ for ((i=0; i <= $#; i++)); do
             exit 1
         fi
         break
-    else
-        API_KEY="a38a70fa6faa94691e4ce4e045ebe90c5c8726e590e6ccea8724be29b190faa9"
     fi
 done
 
