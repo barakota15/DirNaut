@@ -636,7 +636,7 @@ for DOMAIN in "${DOMAIN_LIST[@]}"; do
 
     # =====[Clean up temporary *_urls.txt files silently]=====
     echo ""
-    rm -f $URLS resume*
+    rm -rf $URLS resume* reports &> /dev/null
 
     # =====[Show results]=====
     if [ "$SILENT" = true ]; then
