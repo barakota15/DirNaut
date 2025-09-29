@@ -347,7 +347,7 @@ for ((i=0; i <= $#; i++)); do
             for valid_tool in "${VALID_TOOLS[@]}"; do
                 if [[ "$tool" == "$valid_tool" ]]; then
                     valid=true
-                    break
+                    continue
                 fi
             done
 
@@ -383,7 +383,7 @@ for ((i=0; i <= $#; i++)); do
             for valid_tool in "${VALID_TOOLS[@]}"; do
                 if [[ "$tool" == "$valid_tool" ]]; then
                     valid=true
-                    break
+                    continue
                 fi
             done
 
